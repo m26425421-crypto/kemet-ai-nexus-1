@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { I18nProvider } from "@/lib/i18n";
+import { ThemeProvider } from "@/lib/theme";
+import { SessionProvider } from "@/lib/session";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -76,22 +80,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      {
+        name: "viewport",
+        content:
+          "width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1",
+      },
+      { title: "KEMET AI — الذكاء الاصطناعي من قلب الحضارة" },
+      {
+        name: "description",
+        content:
+          "KEMET AI — مساعد ذكاء اصطناعي عربي بالكامل: محادثة ذكية، توليد صور، ترجمة، برمجة، محتوى إسلامي والمزيد.",
+      },
+      { name: "author", content: "Mohamed Rezk" },
+      { name: "theme-color", content: "#111a2e" },
+      { property: "og:title", content: "KEMET AI — الذكاء الاصطناعي من قلب الحضارة" },
+      {
+        property: "og:description",
+        content: "KEMET AI — مساعد ذكاء اصطناعي عربي بالكامل: محادثة ذكية، توليد صور، ترجمة، برمجة، محتوى إسلامي والمزيد.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "KEMET AI — الذكاء الاصطناعي من قلب الحضارة" },
+      { name: "twitter:description", content: "KEMET AI — مساعد ذكاء اصطناعي عربي بالكامل: محادثة ذكية، توليد صور، ترجمة، برمجة، محتوى إسلامي والمزيد." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cfb6c8c0-9e3a-420f-92a4-d7ffde8ddd8f/id-preview-79f4a72f--637d7159-3d29-4b6a-bbb1-ad37dbfff9d0.lovable.app-1784150095221.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cfb6c8c0-9e3a-420f-92a4-d7ffde8ddd8f/id-preview-79f4a72f--637d7159-3d29-4b6a-bbb1-ad37dbfff9d0.lovable.app-1784150095221.png" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/icon-512.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/icon-512.png" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
     ],
   }),
   shellComponent: RootShell,
@@ -102,11 +123,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl" className="dark">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="min-h-svh bg-background text-foreground antialiased">
         {children}
         <Scripts />
       </body>
@@ -119,8 +140,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <ThemeProvider>
+        <I18nProvider>
+          <SessionProvider>
+            {/* Required: nested routes render here. */}
+            <Outlet />
+            <Toaster position="top-center" richColors />
+          </SessionProvider>
+        </I18nProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

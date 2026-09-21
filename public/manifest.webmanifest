@@ -1,0 +1,20 @@
+{
+  "name": "KEMET AI",
+  "short_name": "KEMET",
+  "description": "الذكاء الاصطناعي من قلب الحضارة",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#111a2e",
+  "theme_color": "#111a2e",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
