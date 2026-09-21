@@ -484,6 +484,72 @@ export type Database = {
         }
         Relationships: []
       }
+      video_jobs: {
+        Row: {
+          aspect: string
+          cost: number
+          created_at: string
+          current_segment: number
+          duration_seconds: number
+          error: string | null
+          fal_request_ids: Json
+          final_url: string | null
+          id: string
+          image_url: string | null
+          mode: string
+          prompt: string
+          segment_seconds: number
+          segments: Json
+          status: string
+          thumbnail_url: string | null
+          total_segments: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          aspect?: string
+          cost: number
+          created_at?: string
+          current_segment?: number
+          duration_seconds: number
+          error?: string | null
+          fal_request_ids?: Json
+          final_url?: string | null
+          id?: string
+          image_url?: string | null
+          mode: string
+          prompt: string
+          segment_seconds?: number
+          segments?: Json
+          status?: string
+          thumbnail_url?: string | null
+          total_segments: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          aspect?: string
+          cost?: number
+          created_at?: string
+          current_segment?: number
+          duration_seconds?: number
+          error?: string | null
+          fal_request_ids?: Json
+          final_url?: string | null
+          id?: string
+          image_url?: string | null
+          mode?: string
+          prompt?: string
+          segment_seconds?: number
+          segments?: Json
+          status?: string
+          thumbnail_url?: string | null
+          total_segments?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
