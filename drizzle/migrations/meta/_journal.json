@@ -1,0 +1,76 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1789977825790,
+      "tag": "0000_20260715210331_e3ea40fa_9cb8_4436_8b45_ec696d046aec",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789977841029,
+      "tag": "0001_20260715210408_d52edf2c_ee3d_4fb0_9f23_a9179c0db064",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789977855403,
+      "tag": "0002_20260716094002_48238f3a_7997_4f91_a0f9_ebeed77f8d9b",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1789977870672,
+      "tag": "0003_20260716094027_fc668021_6515_4205_aac1_bdabfa8a2af2",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1789977894170,
+      "tag": "0004_20260717213557_c7eeefef_4932_4a2e_b163_3f77521e7a97",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1789977905595,
+      "tag": "0005_20260717213632_849174e9_20c1_4176_9402_270c72c128db",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1789977946045,
+      "tag": "0006_20260718055451_32577e9b_3033_48e8_a75b_4baac9f5f29d",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1789977961558,
+      "tag": "0007_20260718055735_12d8a6b4_4157_4723_bacf_3e38062e9f9f",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1789977979279,
+      "tag": "0008_20260720122813_8948b6c9_6937_4cc5_b57e_61aa812ad61f",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1789977992796,
+      "tag": "0009_20260914185546_8410062c_8faf_42d4_8b1a_b2227715c967",
+      "breakpoints": true
+    }
+  ]
+}
