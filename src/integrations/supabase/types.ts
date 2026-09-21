@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      ad_watch_daily: {
+        Row: {
+          count: number
+          day: string
+          section: string
+          user_id: string
+        }
+        Insert: {
+          count?: number
+          day?: string
+          section: string
+          user_id: string
+        }
+        Update: {
+          count?: number
+          day?: string
+          section?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       app_settings: {
         Row: {
           description: string | null
@@ -154,6 +175,192 @@ export type Database = {
         }
         Relationships: []
       }
+      marketplace_favorites: {
+        Row: {
+          created_at: string
+          product_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          product_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          product_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "marketplace_favorites_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "marketplace_products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      marketplace_follows: {
+        Row: {
+          created_at: string
+          follower_id: string
+          seller_id: string
+        }
+        Insert: {
+          created_at?: string
+          follower_id: string
+          seller_id: string
+        }
+        Update: {
+          created_at?: string
+          follower_id?: string
+          seller_id?: string
+        }
+        Relationships: []
+      }
+      marketplace_orders: {
+        Row: {
+          amount_credits: number
+          buyer_id: string
+          commission_credits: number
+          created_at: string
+          id: string
+          product_id: string
+          seller_credits: number
+          seller_id: string
+          status: string
+        }
+        Insert: {
+          amount_credits: number
+          buyer_id: string
+          commission_credits: number
+          created_at?: string
+          id?: string
+          product_id: string
+          seller_credits: number
+          seller_id: string
+          status?: string
+        }
+        Update: {
+          amount_credits?: number
+          buyer_id?: string
+          commission_credits?: number
+          created_at?: string
+          id?: string
+          product_id?: string
+          seller_credits?: number
+          seller_id?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "marketplace_orders_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "marketplace_products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      marketplace_products: {
+        Row: {
+          category: string
+          cover_url: string | null
+          created_at: string
+          demo_url: string | null
+          description: string
+          file_url: string | null
+          gallery: Json
+          id: string
+          keywords: string[]
+          price_credits: number
+          product_type: string
+          rating_avg: number
+          rating_count: number
+          sales_count: number
+          seller_id: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          cover_url?: string | null
+          created_at?: string
+          demo_url?: string | null
+          description?: string
+          file_url?: string | null
+          gallery?: Json
+          id?: string
+          keywords?: string[]
+          price_credits: number
+          product_type: string
+          rating_avg?: number
+          rating_count?: number
+          sales_count?: number
+          seller_id: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          cover_url?: string | null
+          created_at?: string
+          demo_url?: string | null
+          description?: string
+          file_url?: string | null
+          gallery?: Json
+          id?: string
+          keywords?: string[]
+          price_credits?: number
+          product_type?: string
+          rating_avg?: number
+          rating_count?: number
+          sales_count?: number
+          seller_id?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      marketplace_reviews: {
+        Row: {
+          comment: string
+          created_at: string
+          id: string
+          product_id: string
+          rating: number
+          user_id: string
+        }
+        Insert: {
+          comment?: string
+          created_at?: string
+          id?: string
+          product_id: string
+          rating: number
+          user_id: string
+        }
+        Update: {
+          comment?: string
+          created_at?: string
+          id?: string
+          product_id?: string
+          rating?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "marketplace_reviews_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "marketplace_products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -196,6 +403,63 @@ export type Database = {
           plan?: Database["public"]["Enums"]["subscription_plan"]
           theme?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      seller_balances: {
+        Row: {
+          available_credits: number
+          lifetime_credits: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          available_credits?: number
+          lifetime_credits?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          available_credits?: number
+          lifetime_credits?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      seller_payouts: {
+        Row: {
+          admin_note: string | null
+          amount_credits: number
+          created_at: string
+          details: Json
+          id: string
+          method: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          admin_note?: string | null
+          amount_credits: number
+          created_at?: string
+          details?: Json
+          id?: string
+          method: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          admin_note?: string | null
+          amount_credits?: number
+          created_at?: string
+          details?: Json
+          id?: string
+          method?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
@@ -266,6 +530,15 @@ export type Database = {
         }
         Returns: boolean
       }
+      mp_purchase: { Args: { _product_id: string }; Returns: Json }
+      mp_request_payout: {
+        Args: { _amount: number; _details: Json; _method: string }
+        Returns: string
+      }
+      record_ad_watch: {
+        Args: { _count?: number; _section: string }
+        Returns: number
+      }
       refund_credits: {
         Args: { _amount: number; _reason: string; _user_id: string }
         Returns: number
@@ -273,6 +546,10 @@ export type Database = {
       spend_credits: {
         Args: { _amount: number; _metadata?: Json; _reason: string }
         Returns: number
+      }
+      spend_or_watch_ad: {
+        Args: { _cost: number; _reason: string; _section: string }
+        Returns: Json
       }
     }
     Enums: {
