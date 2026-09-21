@@ -10,33 +10,425 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedChatRouteImport } from './routes/_authenticated/chat'
+import { Route as AuthenticatedHomeRouteImport } from './routes/_authenticated/home'
+import { Route as AuthenticatedImagesRouteImport } from './routes/_authenticated/images'
+import { Route as AuthenticatedMarketplaceRouteImport } from './routes/_authenticated/marketplace'
+import { Route as AuthenticatedMyVideosRouteImport } from './routes/_authenticated/my-videos'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
+import { Route as AuthenticatedStoreRouteImport } from './routes/_authenticated/store'
+import { Route as AuthenticatedVideoStudioRouteImport } from './routes/_authenticated/video-studio'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiGenerateImageRouteImport } from './routes/api/generate-image'
+import { Route as ApiVideoGenerateRouteImport } from './routes/api/video-generate'
+import { Route as ApiVideoStatusRouteImport } from './routes/api/video-status'
+import { Route as ApiVisionRouteImport } from './routes/api/vision'
+import { Route as AuthenticatedFeatureSlugRouteImport } from './routes/_authenticated/feature.$slug'
+import { Route as AuthenticatedFeatureCreatorRouteImport } from './routes/_authenticated/feature.creator'
+import { Route as AuthenticatedFeatureIslamicRouteImport } from './routes/_authenticated/feature.islamic'
+import { Route as AuthenticatedFeatureProgrammingRouteImport } from './routes/_authenticated/feature.programming'
+import { Route as AuthenticatedFeatureSttRouteImport } from './routes/_authenticated/feature.stt'
+import { Route as AuthenticatedFeatureStudyRouteImport } from './routes/_authenticated/feature.study'
+import { Route as AuthenticatedFeatureSummarizerRouteImport } from './routes/_authenticated/feature.summarizer'
+import { Route as AuthenticatedFeatureTranslationRouteImport } from './routes/_authenticated/feature.translation'
+import { Route as AuthenticatedFeatureTtsRouteImport } from './routes/_authenticated/feature.tts'
+import { Route as AuthenticatedFeatureVideosRouteImport } from './routes/_authenticated/feature.videos'
+import { Route as AuthenticatedFeatureVisionRouteImport } from './routes/_authenticated/feature.vision'
+import { Route as AuthenticatedMarketplaceIdRouteImport } from './routes/_authenticated/marketplace.$id'
+import { Route as AuthenticatedMarketplaceDashboardRouteImport } from './routes/_authenticated/marketplace.dashboard'
+import { Route as AuthenticatedMarketplaceSellRouteImport } from './routes/_authenticated/marketplace.sell'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedChatRoute = AuthenticatedChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedHomeRoute = AuthenticatedHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedImagesRoute = AuthenticatedImagesRouteImport.update({
+  id: '/images',
+  path: '/images',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedMarketplaceRoute =
+  AuthenticatedMarketplaceRouteImport.update({
+    id: '/marketplace',
+    path: '/marketplace',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedMyVideosRoute = AuthenticatedMyVideosRouteImport.update({
+  id: '/my-videos',
+  path: '/my-videos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedStoreRoute = AuthenticatedStoreRouteImport.update({
+  id: '/store',
+  path: '/store',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedVideoStudioRoute =
+  AuthenticatedVideoStudioRouteImport.update({
+    id: '/video-studio',
+    path: '/video-studio',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGenerateImageRoute = ApiGenerateImageRouteImport.update({
+  id: '/api/generate-image',
+  path: '/api/generate-image',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiVideoGenerateRoute = ApiVideoGenerateRouteImport.update({
+  id: '/api/video-generate',
+  path: '/api/video-generate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiVideoStatusRoute = ApiVideoStatusRouteImport.update({
+  id: '/api/video-status',
+  path: '/api/video-status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiVisionRoute = ApiVisionRouteImport.update({
+  id: '/api/vision',
+  path: '/api/vision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedFeatureSlugRoute =
+  AuthenticatedFeatureSlugRouteImport.update({
+    id: '/feature/$slug',
+    path: '/feature/$slug',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFeatureCreatorRoute =
+  AuthenticatedFeatureCreatorRouteImport.update({
+    id: '/feature/creator',
+    path: '/feature/creator',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFeatureIslamicRoute =
+  AuthenticatedFeatureIslamicRouteImport.update({
+    id: '/feature/islamic',
+    path: '/feature/islamic',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFeatureProgrammingRoute =
+  AuthenticatedFeatureProgrammingRouteImport.update({
+    id: '/feature/programming',
+    path: '/feature/programming',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFeatureSttRoute = AuthenticatedFeatureSttRouteImport.update({
+  id: '/feature/stt',
+  path: '/feature/stt',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedFeatureStudyRoute =
+  AuthenticatedFeatureStudyRouteImport.update({
+    id: '/feature/study',
+    path: '/feature/study',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFeatureSummarizerRoute =
+  AuthenticatedFeatureSummarizerRouteImport.update({
+    id: '/feature/summarizer',
+    path: '/feature/summarizer',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFeatureTranslationRoute =
+  AuthenticatedFeatureTranslationRouteImport.update({
+    id: '/feature/translation',
+    path: '/feature/translation',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFeatureTtsRoute = AuthenticatedFeatureTtsRouteImport.update({
+  id: '/feature/tts',
+  path: '/feature/tts',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedFeatureVideosRoute =
+  AuthenticatedFeatureVideosRouteImport.update({
+    id: '/feature/videos',
+    path: '/feature/videos',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFeatureVisionRoute =
+  AuthenticatedFeatureVisionRouteImport.update({
+    id: '/feature/vision',
+    path: '/feature/vision',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedMarketplaceIdRoute =
+  AuthenticatedMarketplaceIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => AuthenticatedMarketplaceRoute,
+  } as any)
+const AuthenticatedMarketplaceDashboardRoute =
+  AuthenticatedMarketplaceDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthenticatedMarketplaceRoute,
+  } as any)
+const AuthenticatedMarketplaceSellRoute =
+  AuthenticatedMarketplaceSellRouteImport.update({
+    id: '/sell',
+    path: '/sell',
+    getParentRoute: () => AuthenticatedMarketplaceRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/chat': typeof AuthenticatedChatRoute
+  '/home': typeof AuthenticatedHomeRoute
+  '/images': typeof AuthenticatedImagesRoute
+  '/marketplace': typeof AuthenticatedMarketplaceRouteWithChildren
+  '/my-videos': typeof AuthenticatedMyVideosRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/store': typeof AuthenticatedStoreRoute
+  '/video-studio': typeof AuthenticatedVideoStudioRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/generate-image': typeof ApiGenerateImageRoute
+  '/api/video-generate': typeof ApiVideoGenerateRoute
+  '/api/video-status': typeof ApiVideoStatusRoute
+  '/api/vision': typeof ApiVisionRoute
+  '/feature/$slug': typeof AuthenticatedFeatureSlugRoute
+  '/feature/creator': typeof AuthenticatedFeatureCreatorRoute
+  '/feature/islamic': typeof AuthenticatedFeatureIslamicRoute
+  '/feature/programming': typeof AuthenticatedFeatureProgrammingRoute
+  '/feature/stt': typeof AuthenticatedFeatureSttRoute
+  '/feature/study': typeof AuthenticatedFeatureStudyRoute
+  '/feature/summarizer': typeof AuthenticatedFeatureSummarizerRoute
+  '/feature/translation': typeof AuthenticatedFeatureTranslationRoute
+  '/feature/tts': typeof AuthenticatedFeatureTtsRoute
+  '/feature/videos': typeof AuthenticatedFeatureVideosRoute
+  '/feature/vision': typeof AuthenticatedFeatureVisionRoute
+  '/marketplace/$id': typeof AuthenticatedMarketplaceIdRoute
+  '/marketplace/dashboard': typeof AuthenticatedMarketplaceDashboardRoute
+  '/marketplace/sell': typeof AuthenticatedMarketplaceSellRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/chat': typeof AuthenticatedChatRoute
+  '/home': typeof AuthenticatedHomeRoute
+  '/images': typeof AuthenticatedImagesRoute
+  '/marketplace': typeof AuthenticatedMarketplaceRouteWithChildren
+  '/my-videos': typeof AuthenticatedMyVideosRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/store': typeof AuthenticatedStoreRoute
+  '/video-studio': typeof AuthenticatedVideoStudioRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/generate-image': typeof ApiGenerateImageRoute
+  '/api/video-generate': typeof ApiVideoGenerateRoute
+  '/api/video-status': typeof ApiVideoStatusRoute
+  '/api/vision': typeof ApiVisionRoute
+  '/feature/$slug': typeof AuthenticatedFeatureSlugRoute
+  '/feature/creator': typeof AuthenticatedFeatureCreatorRoute
+  '/feature/islamic': typeof AuthenticatedFeatureIslamicRoute
+  '/feature/programming': typeof AuthenticatedFeatureProgrammingRoute
+  '/feature/stt': typeof AuthenticatedFeatureSttRoute
+  '/feature/study': typeof AuthenticatedFeatureStudyRoute
+  '/feature/summarizer': typeof AuthenticatedFeatureSummarizerRoute
+  '/feature/translation': typeof AuthenticatedFeatureTranslationRoute
+  '/feature/tts': typeof AuthenticatedFeatureTtsRoute
+  '/feature/videos': typeof AuthenticatedFeatureVideosRoute
+  '/feature/vision': typeof AuthenticatedFeatureVisionRoute
+  '/marketplace/$id': typeof AuthenticatedMarketplaceIdRoute
+  '/marketplace/dashboard': typeof AuthenticatedMarketplaceDashboardRoute
+  '/marketplace/sell': typeof AuthenticatedMarketplaceSellRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/chat': typeof AuthenticatedChatRoute
+  '/_authenticated/home': typeof AuthenticatedHomeRoute
+  '/_authenticated/images': typeof AuthenticatedImagesRoute
+  '/_authenticated/marketplace': typeof AuthenticatedMarketplaceRouteWithChildren
+  '/_authenticated/my-videos': typeof AuthenticatedMyVideosRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
+  '/_authenticated/store': typeof AuthenticatedStoreRoute
+  '/_authenticated/video-studio': typeof AuthenticatedVideoStudioRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/generate-image': typeof ApiGenerateImageRoute
+  '/api/video-generate': typeof ApiVideoGenerateRoute
+  '/api/video-status': typeof ApiVideoStatusRoute
+  '/api/vision': typeof ApiVisionRoute
+  '/_authenticated/feature/$slug': typeof AuthenticatedFeatureSlugRoute
+  '/_authenticated/feature/creator': typeof AuthenticatedFeatureCreatorRoute
+  '/_authenticated/feature/islamic': typeof AuthenticatedFeatureIslamicRoute
+  '/_authenticated/feature/programming': typeof AuthenticatedFeatureProgrammingRoute
+  '/_authenticated/feature/stt': typeof AuthenticatedFeatureSttRoute
+  '/_authenticated/feature/study': typeof AuthenticatedFeatureStudyRoute
+  '/_authenticated/feature/summarizer': typeof AuthenticatedFeatureSummarizerRoute
+  '/_authenticated/feature/translation': typeof AuthenticatedFeatureTranslationRoute
+  '/_authenticated/feature/tts': typeof AuthenticatedFeatureTtsRoute
+  '/_authenticated/feature/videos': typeof AuthenticatedFeatureVideosRoute
+  '/_authenticated/feature/vision': typeof AuthenticatedFeatureVisionRoute
+  '/_authenticated/marketplace/$id': typeof AuthenticatedMarketplaceIdRoute
+  '/_authenticated/marketplace/dashboard': typeof AuthenticatedMarketplaceDashboardRoute
+  '/_authenticated/marketplace/sell': typeof AuthenticatedMarketplaceSellRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/admin'
+    | '/chat'
+    | '/home'
+    | '/images'
+    | '/marketplace'
+    | '/my-videos'
+    | '/profile'
+    | '/settings'
+    | '/store'
+    | '/video-studio'
+    | '/api/chat'
+    | '/api/generate-image'
+    | '/api/video-generate'
+    | '/api/video-status'
+    | '/api/vision'
+    | '/feature/$slug'
+    | '/feature/creator'
+    | '/feature/islamic'
+    | '/feature/programming'
+    | '/feature/stt'
+    | '/feature/study'
+    | '/feature/summarizer'
+    | '/feature/translation'
+    | '/feature/tts'
+    | '/feature/videos'
+    | '/feature/vision'
+    | '/marketplace/$id'
+    | '/marketplace/dashboard'
+    | '/marketplace/sell'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/admin'
+    | '/chat'
+    | '/home'
+    | '/images'
+    | '/marketplace'
+    | '/my-videos'
+    | '/profile'
+    | '/settings'
+    | '/store'
+    | '/video-studio'
+    | '/api/chat'
+    | '/api/generate-image'
+    | '/api/video-generate'
+    | '/api/video-status'
+    | '/api/vision'
+    | '/feature/$slug'
+    | '/feature/creator'
+    | '/feature/islamic'
+    | '/feature/programming'
+    | '/feature/stt'
+    | '/feature/study'
+    | '/feature/summarizer'
+    | '/feature/translation'
+    | '/feature/tts'
+    | '/feature/videos'
+    | '/feature/vision'
+    | '/marketplace/$id'
+    | '/marketplace/dashboard'
+    | '/marketplace/sell'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/_authenticated/admin'
+    | '/_authenticated/chat'
+    | '/_authenticated/home'
+    | '/_authenticated/images'
+    | '/_authenticated/marketplace'
+    | '/_authenticated/my-videos'
+    | '/_authenticated/profile'
+    | '/_authenticated/settings'
+    | '/_authenticated/store'
+    | '/_authenticated/video-studio'
+    | '/api/chat'
+    | '/api/generate-image'
+    | '/api/video-generate'
+    | '/api/video-status'
+    | '/api/vision'
+    | '/_authenticated/feature/$slug'
+    | '/_authenticated/feature/creator'
+    | '/_authenticated/feature/islamic'
+    | '/_authenticated/feature/programming'
+    | '/_authenticated/feature/stt'
+    | '/_authenticated/feature/study'
+    | '/_authenticated/feature/summarizer'
+    | '/_authenticated/feature/translation'
+    | '/_authenticated/feature/tts'
+    | '/_authenticated/feature/videos'
+    | '/_authenticated/feature/vision'
+    | '/_authenticated/marketplace/$id'
+    | '/_authenticated/marketplace/dashboard'
+    | '/_authenticated/marketplace/sell'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  ApiChatRoute: typeof ApiChatRoute
+  ApiGenerateImageRoute: typeof ApiGenerateImageRoute
+  ApiVideoGenerateRoute: typeof ApiVideoGenerateRoute
+  ApiVideoStatusRoute: typeof ApiVideoStatusRoute
+  ApiVisionRoute: typeof ApiVisionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +440,305 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/chat': {
+      id: '/_authenticated/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof AuthenticatedChatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/home': {
+      id: '/_authenticated/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof AuthenticatedHomeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/images': {
+      id: '/_authenticated/images'
+      path: '/images'
+      fullPath: '/images'
+      preLoaderRoute: typeof AuthenticatedImagesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/marketplace': {
+      id: '/_authenticated/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof AuthenticatedMarketplaceRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/my-videos': {
+      id: '/_authenticated/my-videos'
+      path: '/my-videos'
+      fullPath: '/my-videos'
+      preLoaderRoute: typeof AuthenticatedMyVideosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/store': {
+      id: '/_authenticated/store'
+      path: '/store'
+      fullPath: '/store'
+      preLoaderRoute: typeof AuthenticatedStoreRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/video-studio': {
+      id: '/_authenticated/video-studio'
+      path: '/video-studio'
+      fullPath: '/video-studio'
+      preLoaderRoute: typeof AuthenticatedVideoStudioRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/generate-image': {
+      id: '/api/generate-image'
+      path: '/api/generate-image'
+      fullPath: '/api/generate-image'
+      preLoaderRoute: typeof ApiGenerateImageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/video-generate': {
+      id: '/api/video-generate'
+      path: '/api/video-generate'
+      fullPath: '/api/video-generate'
+      preLoaderRoute: typeof ApiVideoGenerateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/video-status': {
+      id: '/api/video-status'
+      path: '/api/video-status'
+      fullPath: '/api/video-status'
+      preLoaderRoute: typeof ApiVideoStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/vision': {
+      id: '/api/vision'
+      path: '/api/vision'
+      fullPath: '/api/vision'
+      preLoaderRoute: typeof ApiVisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/feature/$slug': {
+      id: '/_authenticated/feature/$slug'
+      path: '/feature/$slug'
+      fullPath: '/feature/$slug'
+      preLoaderRoute: typeof AuthenticatedFeatureSlugRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/creator': {
+      id: '/_authenticated/feature/creator'
+      path: '/feature/creator'
+      fullPath: '/feature/creator'
+      preLoaderRoute: typeof AuthenticatedFeatureCreatorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/islamic': {
+      id: '/_authenticated/feature/islamic'
+      path: '/feature/islamic'
+      fullPath: '/feature/islamic'
+      preLoaderRoute: typeof AuthenticatedFeatureIslamicRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/programming': {
+      id: '/_authenticated/feature/programming'
+      path: '/feature/programming'
+      fullPath: '/feature/programming'
+      preLoaderRoute: typeof AuthenticatedFeatureProgrammingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/stt': {
+      id: '/_authenticated/feature/stt'
+      path: '/feature/stt'
+      fullPath: '/feature/stt'
+      preLoaderRoute: typeof AuthenticatedFeatureSttRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/study': {
+      id: '/_authenticated/feature/study'
+      path: '/feature/study'
+      fullPath: '/feature/study'
+      preLoaderRoute: typeof AuthenticatedFeatureStudyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/summarizer': {
+      id: '/_authenticated/feature/summarizer'
+      path: '/feature/summarizer'
+      fullPath: '/feature/summarizer'
+      preLoaderRoute: typeof AuthenticatedFeatureSummarizerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/translation': {
+      id: '/_authenticated/feature/translation'
+      path: '/feature/translation'
+      fullPath: '/feature/translation'
+      preLoaderRoute: typeof AuthenticatedFeatureTranslationRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/tts': {
+      id: '/_authenticated/feature/tts'
+      path: '/feature/tts'
+      fullPath: '/feature/tts'
+      preLoaderRoute: typeof AuthenticatedFeatureTtsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/videos': {
+      id: '/_authenticated/feature/videos'
+      path: '/feature/videos'
+      fullPath: '/feature/videos'
+      preLoaderRoute: typeof AuthenticatedFeatureVideosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/feature/vision': {
+      id: '/_authenticated/feature/vision'
+      path: '/feature/vision'
+      fullPath: '/feature/vision'
+      preLoaderRoute: typeof AuthenticatedFeatureVisionRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/marketplace/$id': {
+      id: '/_authenticated/marketplace/$id'
+      path: '/$id'
+      fullPath: '/marketplace/$id'
+      preLoaderRoute: typeof AuthenticatedMarketplaceIdRouteImport
+      parentRoute: typeof AuthenticatedMarketplaceRoute
+    }
+    '/_authenticated/marketplace/dashboard': {
+      id: '/_authenticated/marketplace/dashboard'
+      path: '/dashboard'
+      fullPath: '/marketplace/dashboard'
+      preLoaderRoute: typeof AuthenticatedMarketplaceDashboardRouteImport
+      parentRoute: typeof AuthenticatedMarketplaceRoute
+    }
+    '/_authenticated/marketplace/sell': {
+      id: '/_authenticated/marketplace/sell'
+      path: '/sell'
+      fullPath: '/marketplace/sell'
+      preLoaderRoute: typeof AuthenticatedMarketplaceSellRouteImport
+      parentRoute: typeof AuthenticatedMarketplaceRoute
+    }
   }
 }
 
+interface AuthenticatedMarketplaceRouteChildren {
+  AuthenticatedMarketplaceIdRoute: typeof AuthenticatedMarketplaceIdRoute
+  AuthenticatedMarketplaceDashboardRoute: typeof AuthenticatedMarketplaceDashboardRoute
+  AuthenticatedMarketplaceSellRoute: typeof AuthenticatedMarketplaceSellRoute
+}
+
+const AuthenticatedMarketplaceRouteChildren: AuthenticatedMarketplaceRouteChildren =
+  {
+    AuthenticatedMarketplaceIdRoute: AuthenticatedMarketplaceIdRoute,
+    AuthenticatedMarketplaceDashboardRoute:
+      AuthenticatedMarketplaceDashboardRoute,
+    AuthenticatedMarketplaceSellRoute: AuthenticatedMarketplaceSellRoute,
+  }
+
+const AuthenticatedMarketplaceRouteWithChildren =
+  AuthenticatedMarketplaceRoute._addFileChildren(
+    AuthenticatedMarketplaceRouteChildren,
+  )
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedChatRoute: typeof AuthenticatedChatRoute
+  AuthenticatedHomeRoute: typeof AuthenticatedHomeRoute
+  AuthenticatedImagesRoute: typeof AuthenticatedImagesRoute
+  AuthenticatedMarketplaceRoute: typeof AuthenticatedMarketplaceRouteWithChildren
+  AuthenticatedMyVideosRoute: typeof AuthenticatedMyVideosRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
+  AuthenticatedStoreRoute: typeof AuthenticatedStoreRoute
+  AuthenticatedVideoStudioRoute: typeof AuthenticatedVideoStudioRoute
+  AuthenticatedFeatureSlugRoute: typeof AuthenticatedFeatureSlugRoute
+  AuthenticatedFeatureCreatorRoute: typeof AuthenticatedFeatureCreatorRoute
+  AuthenticatedFeatureIslamicRoute: typeof AuthenticatedFeatureIslamicRoute
+  AuthenticatedFeatureProgrammingRoute: typeof AuthenticatedFeatureProgrammingRoute
+  AuthenticatedFeatureSttRoute: typeof AuthenticatedFeatureSttRoute
+  AuthenticatedFeatureStudyRoute: typeof AuthenticatedFeatureStudyRoute
+  AuthenticatedFeatureSummarizerRoute: typeof AuthenticatedFeatureSummarizerRoute
+  AuthenticatedFeatureTranslationRoute: typeof AuthenticatedFeatureTranslationRoute
+  AuthenticatedFeatureTtsRoute: typeof AuthenticatedFeatureTtsRoute
+  AuthenticatedFeatureVideosRoute: typeof AuthenticatedFeatureVideosRoute
+  AuthenticatedFeatureVisionRoute: typeof AuthenticatedFeatureVisionRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedChatRoute: AuthenticatedChatRoute,
+  AuthenticatedHomeRoute: AuthenticatedHomeRoute,
+  AuthenticatedImagesRoute: AuthenticatedImagesRoute,
+  AuthenticatedMarketplaceRoute: AuthenticatedMarketplaceRouteWithChildren,
+  AuthenticatedMyVideosRoute: AuthenticatedMyVideosRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
+  AuthenticatedStoreRoute: AuthenticatedStoreRoute,
+  AuthenticatedVideoStudioRoute: AuthenticatedVideoStudioRoute,
+  AuthenticatedFeatureSlugRoute: AuthenticatedFeatureSlugRoute,
+  AuthenticatedFeatureCreatorRoute: AuthenticatedFeatureCreatorRoute,
+  AuthenticatedFeatureIslamicRoute: AuthenticatedFeatureIslamicRoute,
+  AuthenticatedFeatureProgrammingRoute: AuthenticatedFeatureProgrammingRoute,
+  AuthenticatedFeatureSttRoute: AuthenticatedFeatureSttRoute,
+  AuthenticatedFeatureStudyRoute: AuthenticatedFeatureStudyRoute,
+  AuthenticatedFeatureSummarizerRoute: AuthenticatedFeatureSummarizerRoute,
+  AuthenticatedFeatureTranslationRoute: AuthenticatedFeatureTranslationRoute,
+  AuthenticatedFeatureTtsRoute: AuthenticatedFeatureTtsRoute,
+  AuthenticatedFeatureVideosRoute: AuthenticatedFeatureVideosRoute,
+  AuthenticatedFeatureVisionRoute: AuthenticatedFeatureVisionRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  ApiChatRoute: ApiChatRoute,
+  ApiGenerateImageRoute: ApiGenerateImageRoute,
+  ApiVideoGenerateRoute: ApiVideoGenerateRoute,
+  ApiVideoStatusRoute: ApiVideoStatusRoute,
+  ApiVisionRoute: ApiVisionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
