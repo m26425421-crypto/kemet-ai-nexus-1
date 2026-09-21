@@ -502,6 +502,39 @@ export type Database = {
           roles: string[]
         }[]
       }
+      admin_mp_pending_payouts: {
+        Args: never
+        Returns: {
+          amount_credits: number
+          created_at: string
+          details: Json
+          id: string
+          method: string
+          status: string
+          user_id: string
+        }[]
+      }
+      admin_mp_pending_products: {
+        Args: never
+        Returns: {
+          category: string
+          cover_url: string
+          created_at: string
+          description: string
+          id: string
+          price_credits: number
+          seller_id: string
+          title: string
+        }[]
+      }
+      admin_mp_set_payout: {
+        Args: { _id: string; _note?: string; _status: string }
+        Returns: undefined
+      }
+      admin_mp_set_status: {
+        Args: { _id: string; _status: string }
+        Returns: undefined
+      }
       admin_set_banned: {
         Args: { _banned: boolean; _user_id: string }
         Returns: undefined
