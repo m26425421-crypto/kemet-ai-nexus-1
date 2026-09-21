@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      app_settings: {
+        Row: {
+          description: string | null
+          key: string
+          updated_at: string
+          updated_by: string | null
+          value: Json
+        }
+        Insert: {
+          description?: string | null
+          key: string
+          updated_at?: string
+          updated_by?: string | null
+          value: Json
+        }
+        Update: {
+          description?: string | null
+          key?: string
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
+        }
+        Relationships: []
+      }
       chat_conversations: {
         Row: {
           created_at: string
@@ -133,6 +157,7 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          banned: boolean
           created_at: string
           credits: number
           email: string | null
@@ -146,6 +171,7 @@ export type Database = {
         }
         Insert: {
           avatar_url?: string | null
+          banned?: boolean
           created_at?: string
           credits?: number
           email?: string | null
@@ -159,6 +185,7 @@ export type Database = {
         }
         Update: {
           avatar_url?: string | null
+          banned?: boolean
           created_at?: string
           credits?: number
           email?: string | null
@@ -198,6 +225,39 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_list_users: {
+        Args: { _limit?: number; _offset?: number; _search?: string }
+        Returns: {
+          banned: boolean
+          created_at: string
+          credits: number
+          email: string
+          full_name: string
+          id: string
+          plan: Database["public"]["Enums"]["subscription_plan"]
+          roles: string[]
+        }[]
+      }
+      admin_set_banned: {
+        Args: { _banned: boolean; _user_id: string }
+        Returns: undefined
+      }
+      admin_set_credits: {
+        Args: { _credits: number; _user_id: string }
+        Returns: undefined
+      }
+      admin_set_plan: {
+        Args: {
+          _plan: Database["public"]["Enums"]["subscription_plan"]
+          _user_id: string
+        }
+        Returns: undefined
+      }
+      admin_set_setting: {
+        Args: { _key: string; _value: Json }
+        Returns: undefined
+      }
+      admin_stats: { Args: never; Returns: Json }
       claim_daily_bonus: { Args: never; Returns: number }
       has_role: {
         Args: {
