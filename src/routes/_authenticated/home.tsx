@@ -161,7 +161,7 @@ function Home() {
           </div>
           <div>
             <div className="text-sm font-semibold">
-              {locale === "ar" ? "متجر KEMET العالمي" : "KEMET Marketplace"}
+              {locale === "ar" ? "متجر KEMET العالمي." : "KEMET Marketplace"}
             </div>
             <div className="text-xs text-muted-foreground">
               {locale === "ar" ? "اشترِ أو بع منتجات رقمية بالكريدت" : "Buy and sell digital products with credits"}
