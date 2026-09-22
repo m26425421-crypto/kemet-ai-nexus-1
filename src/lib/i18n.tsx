@@ -42,7 +42,7 @@ const AR: Dict = {
   profile: "الملف الشخصي",
   credits: "الرصيد",
   daily_bonus: "المكافأة اليومية",
-  claim_daily: "استلام +10",
+  claim_daily: "استلام +100",
   claim_daily_done: "تم استلامها اليوم",
   language: "اللغة",
   theme: "المظهر",
